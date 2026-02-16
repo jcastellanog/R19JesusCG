@@ -20,6 +20,8 @@ namespace R19E01JesusCG
         const float PRECIO_MAX = 100000;
         const float PRECIO_DEF = 0;
 
+        const float DESCUENTO = 0.10f;
+
         // MIEMBROS / CAMPOS
         private string _marca;
         private string _modelo;
@@ -106,6 +108,13 @@ namespace R19E01JesusCG
             }
         }
 
+        public float PrecioFinanciado
+        {
+            get
+            {
+                return CalcularPrecioFinanciado();
+            }
+        }
 
         #endregion
 
@@ -155,7 +164,14 @@ namespace R19E01JesusCG
         #endregion
 
         #region MÉTODOS PÚBLICOS
+        public float CalcularPrecioFinanciado()
+        {
+            float precioF;
 
+            precioF = PrecioContado - (PrecioContado * DESCUENTO);
+
+            return precioF;
+        }
         #endregion
     }
 }

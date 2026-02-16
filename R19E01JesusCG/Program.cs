@@ -7,6 +7,7 @@
             Vehiculo coche = new Vehiculo();
 
             coche.Marca = "lkdhfkhfkdhs";
+            //coche.PrecioFinanciado;
         }
     }
 }
