@@ -27,6 +27,7 @@ namespace R19E01JesusCG
         private string _modelo;
         private string _tipoVehiculo;
         private float _precioContado;
+        private DateTime _fechaMatriculacion;
 
         // CONSTRUCTORES
 
@@ -113,6 +114,20 @@ namespace R19E01JesusCG
             get
             {
                 return CalcularPrecioFinanciado();
+            }
+        }
+
+        public DateTime FechaMatriculacion
+        {
+            get
+            {
+                return _fechaMatriculacion;
+            }
+            set
+            {
+                // Validación Fecha Matriculación
+
+                _fechaMatriculacion = value;
             }
         }
 
