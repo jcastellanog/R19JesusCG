@@ -16,10 +16,15 @@ namespace R19E01JesusCG
         const int TAM_MIN_MODELO = 4;
         const string TIPOS_VEHICULOS = "TURISMO FURGONETA CAMIÓN";
 
+        const float PRECIO_MIN = 1000;
+        const float PRECIO_MAX = 100000;
+        const float PRECIO_DEF = 0;
+
         // MIEMBROS / CAMPOS
         private string _marca;
         private string _modelo;
         private string _tipoVehiculo;
+        private float _precioContado;
 
         // CONSTRUCTORES
 
@@ -82,6 +87,26 @@ namespace R19E01JesusCG
                 _tipoVehiculo = value;
             }
         }
+        
+        public float PrecioContado
+        {
+            get
+            {
+                if (_precioContado == PRECIO_DEF)
+                    throw new Exception("ERROR: Precio no establecido");
+
+                return _precioContado;
+            }
+            set
+            {
+                // Validación del Precio
+                ValidarPrecio(value);
+
+                _precioContado = value;
+            }
+        }
+
+
         #endregion
 
         #region MÉTODOS PRIVADOS
@@ -117,6 +142,15 @@ namespace R19E01JesusCG
             }
         }
 
+
+        private void ValidarPrecio(float precio)
+        {
+            if (precio < PRECIO_MIN)
+                throw new Exception("ERROR: Precio inferior al mínimo permitido");
+
+            if (precio > PRECIO_MAX)
+                throw new Exception("ERROR: Precio superior al máximo permitido");
+        }
 
         #endregion
 
